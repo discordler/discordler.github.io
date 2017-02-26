@@ -8,22 +8,16 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> 
   
- <!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  // tracker methods like "setCustomDimension" should be called before "trackPageView"
-  _paq.push(["setCookieDomain", "*.discordler.ddns.net"]);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//discordler.ddns.net/analytics/piwik/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92662613-2', 'auto');
+  ga('send', 'pageview');
+
 </script>
-<!-- End Piwik Code -->
 
   </head>
   <body>
@@ -59,7 +53,7 @@
         <h2 class="header center teal-text text-lighten-2">Wir sind <b>Discord</b>ler</h2>
         <div class="row center">
           <h5 class="header col s12 light">Ein modernes <a href="https://github.com/discordler/discordler.github.io">quellenoffenes</a> responsives Discord Team
-	  <br><b>Issues?</b> Open a ticket with your issues <a href="https://github.com/discordler/discordler.github.io/issues">here</a></h5>
+	  <br><b>Probleme?</b> Öfnne ein neues Ticket<a href="https://github.com/discordler/discordler.github.io/issues">hier</a></h5>
         </div>
         <div class="row center">
             <a href="https://discord.gg/NnHTDeD" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Discord</a>
