@@ -1,5 +1,5 @@
 <!DOCTYPE html> <html lang="en"> <head>
-  <meta http-equiv="refresh" content="1; URL=https://discordler.github.io">
+  <meta http-equiv="refresh" content="5; URL=https://discordler.github.io">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>Discordler</title>
@@ -53,7 +53,14 @@
     </div>
     <div class="parallax"><img src="pic/discord.png" alt="Our own Discord"></div>
   </div>
-
+	  
+	<!-- Loading Screen -->  
+<div id="p1" class="mdl-progress mdl-js-progress"></div>
+<script>
+  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(44);
+  });
+</script>
   <!-- Footer -->
   
   <footer class="page-footer teal">
