@@ -1,14 +1,17 @@
-<!DOCTYPE html> <html lang="en"> <head>
+<!DOCTYPE html> <html lang="de"> <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="description" content="Wir sind ein paar leidenschaftlicher Zocker die, damals auf TeamSpeak, jetzt auf Discord vertreten sind. Wir stellen Game Server und passende Rechte zur Verfügung.">
+  <meta name="keywords" content="Discordler, Team, Games, Gmod, Discord">
+  <meta name="author" content="Discordler">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>Discordler</title>
-  <link rel="icon" type="image/png" href="pic/ico.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="other/pic/ico.png" sizes="32x32">
   <!-- CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> 
   
-<script>
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -25,23 +28,20 @@
     <div class="nav-wrapper container">
         <a id="logo-container" href="index.html" class="brand-logo"><b>Discord</b>ler</a>
       <ul class="right hide-on-med-and-down">
-	<li><a href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank">The Team</a></li>
-        <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Group</a></li>
-        <li><a href="http://discordler.ddns.net:28015" target="_blank">Rust Map</a></li>
+        <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
         <li><a href="#gmod">Gmod</a></li>
 	<li><a href="app.html" target="_blank">Official Discordler App</a></li>
         <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
-	<li><a href="http://discordler.ddns.net/ogp" target="_blank">OpenGamePanel</a></li>
-  <li><a href="index.html" target="_blank">Deutsch</a></li>
+		<li><a href="news.html" target="_blank">News & Videos</a></li>
+	<li><a href="en/index.html" target="_blank">English</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-	<li><a href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank">The Team</a></li>
-        <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Group</a></li>
+	<li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
         <li><a href="#gmod">Gmod</a></li>
 	<li><a href="app.html" target="_blank">Official Discordler App</a></li>
         <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
-	<li><a href="http://discordler.ddns.net/ogp" target="_blank">OpenGamePanel</a></li>
-  <li><a href="index.html" target="_blank">Deutsch</a></li>
+        <li><a href="news.html" target="_blank">News & Videos</a></li>
+	<li><a href="en/index.html" target="_blank">English</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -53,7 +53,7 @@
         <h2 class="header center teal-text text-lighten-2">We are <b>Discord</b>ler</h2>
         <div class="row center">
           <h5 class="header col s12 light">A modern <a href="https://github.com/discordler/discordler.github.io">opensource</a> responsive Discord Team
-	  <br><b>Issues?</b> Open a ticket with your issues <a href="https://github.com/discordler/discordler.github.io/issues">here</a></h5>
+	 <br><b>Issues?</b> Open a ticket with your issues <a href="https://github.com/discordler/discordler.github.io/issues">here</a></h5>
         </div>
         <div class="row center">
             <a href="https://discord.gg/NnHTDeD" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Discord</a>
@@ -61,7 +61,7 @@
         <br><br>
       </div>
     </div>
-    <div class="parallax"><img src="pic/discord.png" alt="Our own Discord"></div>
+    <div class="parallax"><img src="other/pic/discord.png" alt="Our own Discord"></div>
   </div>
   <div class="container">
     <div class="section">
@@ -69,20 +69,20 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">watch_later</i></h2>
-            <h5 class="center">Available 4/6</h5>
-            <p class="light">Our server is starting automatically everyday at 6pm and Rust will shut down at 10. It isnt running 24/7 because of the electricity expenses. Maybe in the future if everyone is willing to pay some € 
-we will run it 24/7.</p>
+		   <!-- TS3 Widget  - https://www.tsviewer.com/index.php?page=ts_viewer&ID=1101205  --->
+			<div id="ts3viewer_1101205" style="background-color:rgb(235, 235, 235); "> </div>
+			<script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
+			<script>var ts3v_url_1 = "https://www.tsviewer.com/ts3viewer.php?ID=1101205&text=757575&text_size=12&text_family=1&text_s_color=000000&text_s_weight=bold&text_s_style=italic&text_s_variant=small-caps&text_s_decoration=underline&text_i_color=&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_c_color=&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_u_color=000000&text_u_weight=normal&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_s_color_h=&text_s_weight_h=bold&text_s_style_h=italic&text_s_variant_h=small-caps&text_s_decoration_h=underline&text_i_color_h=000000&text_i_weight_h=bold&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=none&text_c_color_h=&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=none&text_u_color_h=&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none&flags=0&hideEmptyChannels&iconset=default_colored_2014_tsv";
+			ts3v_display.init(ts3v_url_1, 1101205, 100);</script>
           </div>
         </div>
-		        <div class="col s12 m4">
+		 <!-- Discord Widget  --->
+		    <div class="col s12 m4">
             <iframe src="https://discordapp.com/widget?id=239725742575845376&theme=light" width="100%" height="350px" lowtransparency="true" frameborder="0"></iframe>
           </div>
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">cached</i></h2>
-            <h5 class="center">Game Server Online?</h5>
-            <p class="light">Is our game server running right now? Go check it out on the OpenGamePanel. If you need a new Account go and ask one of our friendly Admins.</p>
+             <iframe width="100%" height="315" src="https://www.youtube.com/embed/NFTNyxm9HOc" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         </div>
@@ -96,14 +96,14 @@ we will run it 24/7.</p>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="pic/rust.jpg" alt="Rust by night"></div>
+    <div class="parallax"><img src="other/pic/rust.jpg" alt="Rust by night"></div>
   </div>
   <div class="container">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Build your own City or play PVP!</h4>
+         <h4>Build your own City or play PVP!</h4>
             <p class="left-align light"><b>How to Join? </b><br><a href="steam://connect/discordler.ddns.net:28015">Click HERE to join!</a><br>
 			<br><i>WAY2: </i><br>Press F1 when you are ingame and type in: connect discordler.ddns.net:28015<br>
 			<br><b>More Informations:</b>
@@ -122,7 +122,7 @@ we will run it 24/7.</p>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="pic/gmod.jpg" alt="Gmod"></div>
+    <div class="parallax"><img src="other/pic/gmod.jpg" alt="Gmod"></div>
   </div>
   <div class="container">
     <div class="section">
@@ -162,27 +162,45 @@ we will run it 24/7.</p>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="pic/other.jpg" alt="Other Games" style="display: block; transform: translate3d(-50%, 347px, 0px);"></div>
+    <div class="parallax"><img src="other/pic/other.jpg" alt="Other Games" style="display: block; transform: translate3d(-50%, 347px, 0px);"></div>
   </div>
   <div class="container">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>We have some more game server to offer!</h4>
+			<h4>We have some more game server to offer!</h4>
 			<p class="left-align light"><b>How to Join the other servers? </b><br>[Remember: Some of these aren't working correctly yet!] <br>
 			Connect with our direct join link to:<br>
-			→ <a href="steam://connect/discordler.ddns.net:27315">Counter Strike: Global Offensive</a><br>
-			→ <a href="steam://connect/discordler.ddns.net:27215">ARK - Survival Evolved</a><br>
-			→ <a href="steam://connect/discordler.ddns.net:27115">Arma 2 Operation Arrowhead</a><br>
+			→ <a href="steam://connect/discordler.ddns.net:28019">Counter Strike: Global Offensive</a> 
+			<b>__Csgo Startoptionen (change refresh and threads to your pc hardware): </b> -novid -threads 8 -exec autoexec -language english -processheap -high -refresh 144 -noborder7<b><br>
+			→ <a href="steam://connect/discordler.ddns.net:28023">ARK - Survival Evolved</a><br>
+			→ <a href="steam://connect/discordler.ddns.net:28022">Arma 2 Operation Arrowhead</a><br>
+			→ <a href="https://discordler.github.io/mw3">CoD: Modern Warfare 3 (TEKNO): Klicke hier</a><br>
+			→ <a href="steam://connect/discordler.ddns.net:28020">No More Room in Hell (F2P)</a>
 			<br><i>WAY2: </i><br>Open Console when you are ingame and type in: (Activate the console in settings!)<br>
-			→ Counter Strike: Global Offensive: 'connect discordler.ddns.net:27315'<br>
-			→ ARK - Survival Evolved: 'connect discordler.ddns.net:27215'<br>
-			→ Arma 2 Operation Arrowhead: 'connect discordler.ddns.net:27115'<br><br>
-			<b>Commands</b><br>none yet <b>|</b> available<br>
+			→ Counter Strike: Global Offensive: 'connect discordler.ddns.net:28019'<br>
+			→ ARK - Survival Evolved: 'connect discordler.ddns.net:28023'<br>					
+			→ ARMA 2 Operation Arrowhead: 'connect discordler.ddns.net:28022'<br>
+			→ <a href="https://discordler.github.io/mw3">CoD: Modern Warfare 3 (TEKNO): Klicke hier</a><br>
+			→ No More Room In Hell: 'connect discordler.ddns.net:28020'<br><br>
 		</div>
       </div>
     </div>
+  </div>
+
+<!-- FAB - Floating Action Button (Icons hier: http://materializecss.com/icons.html) -->
+	
+	<div class="fixed-action-btn vertical">
+    <a class="btn-floating btn-large green">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red" href="http://discordler.ddns.net/ogp"><i class="material-icons">vpn_key</i></a></li>
+      <li><a class="btn-floating blue" href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank"><i class="material-icons">info_outline</i></a></li>
+      <li><a class="btn-floating green" href="https://github.com/discordler/discordler.github.io/issues"><i class="material-icons">report_problem</i></a></li>
+      <li><a class="btn-floating yellow darken-1" href="de/index.html" target="_blank"><i class="material-icons">description</i></a></li>
+    </ul>
   </div>
 
   <!-- Footer -->
@@ -191,7 +209,7 @@ we will run it 24/7.</p>
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-           <h5 class="white-text">Special Thanks</h5>
+          <h5 class="white-text">Special Thanks</h5>
            <p class="grey-text text-lighten-4">Special Thanks goes to Luis for setting up the Rust and Gmod Server and spending so much time on it.
             Also a special thanks to Kai for fitting this Website to our needs. Thanks to Fabian for his help on various areas.</p>
         </div>
@@ -204,7 +222,7 @@ we will run it 24/7.</p>
           </ul>
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Moderators</h5>
+          <h5 class="white-text">Moderatoren</h5>
           <ul>
             <li><a class="white-text" href="http://steamcommunity.com/id/astertz">Adrian //Moderator</a></li>
             <li><a class="white-text" href="http://steamcommunity.com/id/Flokg">Flo //Moderator</a></li>
@@ -216,7 +234,7 @@ we will run it 24/7.</p>
     </div>
     <div class="footer-copyright">
       <div class="container">
-          Made by an <b>Discord</b>ler
+          Created from some <b>Discord</b>ler.
       </div>
     </div>
     <div class="footer-copyright text-center">
