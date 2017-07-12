@@ -1,0 +1,321 @@
+<!DOCTYPE html> <html lang="en"> <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="author" content="Discordler">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Minigame V2 - Discordler</title>
+  <link rel="icon" type="image/png" href="../pic/ico.png" sizes="32x32">
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> 
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92662613-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+
+  </head>
+  <body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="../de/" class="brand-logo"><b>Discord</b>ler</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
+        <li><a href="../de/gmod">Gmod</a></li>
+	<li><a href="../en/app.html" target="_blank">Official Discordler App</a></li>
+        <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
+		<li><a href="news.html" target="_blank">News & Videos</a></li>
+	<li><a href="../en" target="_blank">English</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+	<li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
+        <li><a href="../de/gmod">Gmod</a></li>
+	<li><a href="../en/app.html" target="_blank">Official Discordler App</a></li>
+        <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
+        <li><a href="../de/news.html" target="_blank">News & Videos</a></li>
+	<li><a href="../en" target="_blank">English</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h2 class="header center teal-text text-lighten-2"><b>Discord</b>ler Minigame</h2>
+        <div class="row center">
+          <h5 class="header col s12 light">Version 2!</h5>
+        </div>		
+        <div class="row center">
+            <a href="../de" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Back to Home?</a>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="../pic/discord.png" alt="Our own Discord"></div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <!-- Icon Section -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+			<body onload="startGame()">
+
+
+<div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:322px;height:182px;display:none"></div>
+<div id="myrestartbutton" style="position:absolute;padding-top:75px;padding-left:120px;display:none;"><button onclick="restartGame()">Restart</button></div>
+<div id="canvascontainer"></div>
+<br>
+<div style="text-align:center;width:320px;">
+  <button ontouchstart="moveup()" onmousedown="moveup()" onmouseup="clearmove()">UP</button><br><br>
+  <button ontouchstart="moveleft()" onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>
+  <button ontouchstart="moveright()" onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button><br><br>
+  <button ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()">DOWN</button>
+</div>
+<br>
+
+<script>
+
+var myGameArea;
+var myGamePiece;
+var myObstacles = [];
+var myscore;
+
+function restartGame() {
+document.getElementById("myfilter").style.display = "none";
+document.getElementById("myrestartbutton").style.display = "none";
+myGameArea.stop();
+myGameArea.clear();
+myGameArea = {};
+myGamePiece = {};
+myObstacles = [];
+myscore = {};
+document.getElementById("canvascontainer").innerHTML = "";
+startGame()
+}
+
+function startGame() {
+    myGameArea = new gamearea();
+    myGamePiece = new component(30, 30, "red", 10, 75);
+    myscore = new component("15px", "Consolas", "black", 220, 25, "text");
+    myGameArea.start();
+}
+
+function gamearea() {
+    this.canvas = document.createElement("canvas");
+    this.canvas.width = 320;
+    this.canvas.height = 180;    
+    document.getElementById("canvascontainer").appendChild(this.canvas);
+    this.context = this.canvas.getContext("2d");
+    this.pause = false;
+    this.frameNo = 0;
+    this.start = function() {
+        this.interval = setInterval(updateGameArea, 20);
+    }
+    this.stop = function() {
+        clearInterval(this.interval);
+        this.pause = true;
+    }
+    this.clear = function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+
+    this.type = type;
+    if (type == "text") {
+        this.text = color;
+    }
+    this.score = 0;    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, y, min, max, height, gap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            myGameArea.stop();
+            document.getElementById("myfilter").style.display = "block";
+            document.getElementById("myrestartbutton").style.display = "block";
+            return;
+        } 
+    }
+    if (myGameArea.pause == false) {
+        myGameArea.clear();
+        myGameArea.frameNo += 1;
+        myscore.score +=1;        
+        if (myGameArea.frameNo == 1 || everyinterval(150)) {
+            x = myGameArea.canvas.width;
+            y = myGameArea.canvas.height - 100;
+            min = 20;
+            max = 100;
+            height = Math.floor(Math.random()*(max-min+1)+min);
+            min = 50;
+            max = 100;
+            gap = Math.floor(Math.random()*(max-min+1)+min);
+            myObstacles.push(new component(10, height, "green", x, 0));
+            myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+        }
+        for (i = 0; i < myObstacles.length; i += 1) {
+            myObstacles[i].x += -1;
+            myObstacles[i].update();
+        }
+        myscore.text="SCORE: " + myscore.score;        
+        myscore.update();
+        myGamePiece.x += myGamePiece.speedX;
+        myGamePiece.y += myGamePiece.speedY;    
+        myGamePiece.update();
+    }
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function moveup(e) {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 1; 
+}
+
+function clearmove(e) {
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
+}
+startGame();
+
+</script>
+</div>
+</div>
+</div>
+  
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Source Code</h4>
+			<a href="https://www.w3schools.com/graphics/game_intro.asp">Klick here!</a><br>
+		
+		</div>
+      </div>
+    </div>
+  </div>
+
+<!-- FAB - Floating Action Button (Icons hier: http://materializecss.com/icons.html) -->
+	
+	<div class="fixed-action-btn vertical">
+    <a class="btn-floating btn-large green">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red" href="http://discordler.ddns.net/ogp" target="_blank"><i class="material-icons">vpn_key</i></a></li>
+      <li><a class="btn-floating blue" href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank"><i class="material-icons">info_outline</i></a></li>
+      <li><a class="btn-floating green" href="https://github.com/discordler/discordler.github.io/issues"><i class="material-icons">report_problem</i></a></li>
+      <li><a class="btn-floating yellow darken-1" href="../en" target="_blank"><i class="material-icons">description</i></a></li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+           <h5 class="white-text">Vielen Dank</h5>
+           <p class="grey-text text-lighten-4">Besten Dank geht an den Luis der Rust und Gmod Server aufgesetzt hat und sehr viel Zeit damit verbracht hat.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Admins</h5>
+          <ul>
+            <li><a class="white-text" href="http://steamcommunity.com/id/kai_2703">Kai //Admin</a></li>
+	        <li><a class="white-text" href="http://steamcommunity.com/id/DerBilaJoe">Luis //Admin</a></li>
+            <li><a class="white-text" href="http://steamcommunity.com/id/FaserF">Fabian //Admin</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Moderatoren</h5>
+          <ul>
+            <li><a class="white-text" href="http://steamcommunity.com/id/astertz">Adrian //Moderator</a></li>
+            <li><a class="white-text" href="http://steamcommunity.com/id/Flokg">Flo //Moderator</a></li>
+            <li><a class="white-text" href="http://steamcommunity.com/id/Blue_Skywolf">Fabio //Moderator</a></li>
+	        <li><a class="white-text" href="http://steamcommunity.com/id/Issava">Nessie //Moderator</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+          Erstellt von einem <b>Discord</b>ler
+      </div>
+    </div>
+    <div class="footer-copyright text-center">
+      <div class="container text-center">
+        <a class="white-text text-left" href="../impressum.html">Impressum |</a>
+        <a class="white-text text-center" href="https://github.com/discordler/discordler.github.io"> GitHub |</a>
+		<a class="white-text text-right" href="../en/admin.html" target="_blank"> Admin</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  </body> </html>
