@@ -66,20 +66,27 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-			<p class="left-align light"><b>XInput Wrapper </b><br>
-			1. Lade dir <a href="http://forums.pcsx2.net/Thread-XInput-Wrapper-for-DS3-and-Play-com-USB-Dual-DS2-Controller">XInput Wrapper</a> von hier herunter!<br>
-			2. Starte ScpServer\bin\ScpDriver.exe und installiere die Treiber (Bluetooth, falls du BT besitzt)<br>
-			3. Starte ScpServer\bin\ScpMonitor.exe und schließe deinen Controller via USB an. Er sollte nun hier erscheinen. <br>
-			   Wenn du links unter Host Adress etwas stehen hast, funktionieren auch deine Bluetooth Treiber bereits, wenn nicht gehe zu Schritt 3.1<br>
-			   3.1 Starte ScpServer\bin\Zadig\zadig.exe -> Device -> Load Preset Device -> Bluetooth.cfg<br>
-			   3.2 Options -> List All Devices -> Nun kannst du dein Bluetooth Gerät auswählen (meist etwas mit Bluetooth im Namen)<br>
-			   3.3 Klicke nun auf Replace Driver, warte auf die Fertigstellung und starte deinen PC neu<br>
-			   3.4 Wenn du links unter Host Adress etwas stehen hast, funktionieren deine Bluetooth Treiber, wenn nicht gehe zu Schritt 3.1<br>
-			   3.5 Stecke nun deinen Controller von USB ab, es sollte kurz "Reserved" da stehen und anschließend sollte er sich automatisch verbinden<br><br>
+		  <p class="left-align light"><b>SCP Server</b><br>
+			1. Schließe deinen Controller via USB an.
+			2. Lade dir <a href="https://github.com/nefarius/ScpToolkit/releases/tag/v1.6.133.15324">SCP Server</a> von hier herunter! (WICHTIG: Es wurde beabsichtigt die alte Version genutzt!)<br>
+			3. Starte SCP Server und Wähle dein "Force Install" und sowohl dein Bluetooth Gerät, als auch dein DS3 Controller<br>
+			4. Starte Scp Toolit Monitor.exe . Er sollte nun hier erscheinen. <br>
+			   Wenn du links unter Host Adress etwas stehen hast, funktionieren auch deine Bluetooth Treiber bereits, wenn nicht gehe zu Schritt 5 & 6<br><br>
 			   
-			<p class="left-align light"><b>Mein Controller verbindet sich nicht via Bluetooth</b><br>
+		  
+			<p class="left-align light"><b>XInput Wrapper </b><br>
+			NUR WENN NÖTIG: XINPUT WRAPPER IST VERALTET!
+			5. Lade dir <a href="http://forums.pcsx2.net/Thread-XInput-Wrapper-for-DS3-and-Play-com-USB-Dual-DS2-Controller">XInput Wrapper</a> von hier herunter!<br>
+			6. Wenn du links unter Host Adress etwas stehen hast, funktionieren auch deine Bluetooth Treiber bereits, wenn nicht gehe zu Schritt 3.1<br>
+			   6.1 Starte ScpServer\bin\Zadig\zadig.exe -> Device -> Load Preset Device -> Bluetooth.cfg<br>
+			   6.2 Options -> List All Devices -> Nun kannst du dein Bluetooth Gerät auswählen (meist etwas mit Bluetooth im Namen)<br>
+			   6.3 Klicke nun auf Replace Driver, warte auf die Fertigstellung und starte deinen PC neu<br>
+			   6.4 Wenn du links unter Host Adress etwas stehen hast, funktionieren deine Bluetooth Treiber<br>
+			   6.5 Stecke nun deinen Controller von USB ab, es sollte kurz "Reserved" da stehen und anschließend sollte er sich automatisch verbinden<br><br>
+			   
+			<p class="left-align light"><b>Die Bluetooth Verbindung funktioniert nicht</b><br>
 			-> Stelle sicher, dass du alle Schritte von oben aufmerksam befolgt hast!<br>
-			-> Weitere Lösungsvorschläge folgen noch!<br>
+			-> Stecke deinen Controller ab, wenn Reserved da steht, drücke für eine längere Zeit den PS Button und warte bis zu 1 min.<br>
 		</div>
       </div>
     </div>
