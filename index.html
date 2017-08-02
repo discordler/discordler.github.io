@@ -1,22 +1,33 @@
 <!DOCTYPE html> <html lang="mul"> <head>
-  <!-- <meta http-equiv="refresh" content="0; URL=https://discordler.github.io/de"> -->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <! <meta httpequiv="refresh" content="0; URL=https://discordler.github.io/de"> >
+  <meta httpequiv="ContentType" content="text/html; charset=UTF8"/>
+  <meta name="viewport" content="width=devicewidth, initialscale=1, maximumscale=1.0, userscalable=no"/>
   <meta name="description" content="Wir sind ein paar leidenschaftlicher Zocker die, damals auf TeamSpeak, jetzt auf Discord vertreten sind. Wir stellen Game Server und passende Rechte zur Verfügung.">
   <meta name="keywords" content="Discordler, Team, Games, Gmod, Discord">
   <meta name="author" content="Discordler">
   <title>Redirecting</title>
-   <!-- This is a placeholder. You can finde the real index file in /de/index.html or /en/index.html -->
+   <! This is a placeholder. You can finde the real index file in /de/index.html or /en/index.html >
 
-   <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
-?>
+<?php
+     // Initialize the language code variable
+ $lc = ""; 
+     // Check to see that the global language server variable isset()
+     // If it is set, we cut the first two characters from that string
+ if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']))
+     $lc = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+ 
+     // Now we simply evaluate that variable to detect specific languages
+ if($lc == "en"){
+     header("location: https://discordler.github.io/en/");
+     exit();
+ } else if($lc == "de"){
+     header("location: https://discordler.github.io/de/");
+     exit();
+ }
+ else{ // default case if $lc is empty
+     header("location: https://discordler.github.io/de/");
+     exit();
+ }
+ ?> 
    
 </body> </html>
