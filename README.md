@@ -8,7 +8,8 @@ https://discordler.github.io/
 ## App
 
 Be sure to check out our official Discordler App on GitHub:
-https://github.com/discordler/discordler.github.io
+https://github.com/FaserF/Discordler_App
+https://discordler.github.io/en/app
 
 ## We want to play, talk and more
 
