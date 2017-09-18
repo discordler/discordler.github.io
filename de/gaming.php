@@ -114,6 +114,23 @@ $ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
 (!$ping) ? $status = '<span style="color:#C71585;">CoD: MW3 läuft NICHT! ' : $status = '<span style="color:#7FFF00;">CoD: MW3 läuft!</span>';
 
 echo $status;
+
+
+//Speedtest
+$link = 'https://github.com/discordler/discordler.github.io/archive/master.zip';
+$start = time();
+$size = filesize($link);
+$file = file_get_contents($link);
+$end = time();
+
+$time = $end - $start;
+
+$size = $size / 1048576;
+
+$speed = $size / $time;
+
+echo "<br>";
+echo "Internetgeschwindigkeit des Servers: $speed MB/s";
 ?>
 <span style="color:#000000;">
 			<br>
