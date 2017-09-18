@@ -115,22 +115,35 @@ $ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
 
 echo $status;
 
-
-//Speedtest
-$link = 'https://github.com/discordler/discordler.github.io/archive/master.zip';
-$start = time();
-$size = filesize($link);
-$file = file_get_contents($link);
-$end = time();
-
-$time = $end - $start;
-
-$size = $size / 1048576;
-
-$speed = $size / $time;
-
 echo "<br>";
-echo "Internetgeschwindigkeit des Servers: $speed MB/s";
+echo "<br>";
+?>
+<p class="left-align light"><b>Server Internet Geschwindigkeit (live):</b><br>
+<?php
+//Speedtest
+$times = Array(microtime(true));
+$f = fsockopen("google.com",80);
+$times[] = microtime(true);
+$data = "POST / HTTP/1.0\r\n"
+       ."Host: google.com\r\n"
+       ."\r\n"
+       .str_repeat("a",1000000); // send one megabyte of data
+$sent = strlen($data);
+fputs($f,$data);
+$firstpacket = true;
+$return = 0;
+while(!feof($f)) {
+    $return += strlen(fgets($f));
+    if( $firstpacket) {
+        $firstpacket = false;
+        $times[] = microtime(true);
+    }
+}
+$times[] = microtime(true);
+fclose($f);
+echo "Ping: ".(($times[1]-$times[0])*1000)."ms\n . <br>"
+    ."Upload: ".($sent/($times[2]-$times[1])/1024)."kb/s\n . <br>"
+    ."Download: ".($return/($times[3]-$times[2])/1024)."kb/s\n . <br>";
 ?>
 <span style="color:#000000;">
 			<br>
