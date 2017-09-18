@@ -51,13 +51,12 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h2 class="header center teal-text text-lighten-2">Wir sind <b>Discord</b>ler</h2>
+        <h2 class="header center teal-text text-lighten-2">Unsere Gaming Seite</h2>
         <div class="row center">
-          <h5 class="header col s12 light">Ein modernes <a href="https://github.com/discordler/discordler.github.io">quellenoffenes</a> responsives Discord Team
-	  <br><b>Probleme?</b> Öffne ein neues Ticket<a href="https://github.com/discordler/discordler.github.io/issues"> hier</a></h5>
+          <h5 class="header col s12 light">Lass diese Seite einfach auf deinem 2. Screen geöffnet für die wichtigsten Infos. <br>Oder schau einfach welche Server online sind!</h5>
         </div>
         <div class="row center">
-            <a href="https://discord.gg/NnHTDeD" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Discord</a>
+            <a href="http://discordler.ddns.net/ogp/" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Serververwaltung!</a>
         </div>
         <br><br>
       </div>
@@ -70,62 +69,62 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Gaming Server erreichbar?</h4>
-			<p class="left-align light"><b>Sind unsere Gaming Server online? </b><br>
+			<p class="left-align light"><b>Sind unsere Gaming Server online?</b><br>
 <?php
 $URL = 'discordler.ddns.net';
 $ping = @fsockopen ($URL, 80, $errno, $errstr, 10);
-(!$ping) ? $status = 'Discordler Server läuft NICHT! ' : $status = .'Discordler Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Discordler WebServer läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Discordler WebServer läuft!</span>';
 
 echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27015, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod TTT Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod TTT läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod TTT läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27016, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Prop Hunt Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod Prop Hunt läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod Prop Hunt läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27017, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Deathrun Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod Deathrun läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod Deathrun läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27018, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Hunger Games Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod Hunger Games läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod Hunger Games läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27019, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Murder Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod Murder läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod Murder läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27020, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Guess Who Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">Gmod Guess Who läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Gmod Guess Who läuft!</span>';
 
-echo $status;
+echo $status.'<br>';
 
 echo "<br>";
 
 
 $ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'CoD: MW3 Server läuft!';
+(!$ping) ? $status = '<span style="color:#C71585;">CoD: MW3 läuft NICHT! ' : $status = '<span style="color:#7FFF00;">CoD: MW3 läuft!</span>';
 
 echo $status;
 ?>
+<span style="color:#000000;">
 			<br>
 			<br>
 			<br>
-			→ <a href="http://discordler.ddns.net/ogp/">Serververwaltung</a><br><br>
 			Diese Seite wird automatisch in <b><span id="countdowntimer">60 </span> Sekunden aktualisiert!
 		</div>
       </div>
     </div>
   </div>
+</span>
 
   <!-- Countdown Timer-->
   <script type="text/javascript">
