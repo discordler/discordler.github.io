@@ -75,17 +75,52 @@
 <?php
 $URL = 'discordler.ddns.net';
 $ping = @fsockopen ($URL, 80, $errno, $errstr, 10);
-(!$ping) ? $status = 'Discordler Server läuft NICHT! ' : $status = $URL.'Discordler Server läuft!';
+(!$ping) ? $status = 'Discordler Server läuft NICHT! ' : $status = .'Discordler Server läuft!';
 
 echo $status.'<br>';
 
 $ping = @fsockopen ($URL, 27015, $errno, $errstr, 10);
-(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = $URL.'Gmod TTT Server läuft!';
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod TTT Server läuft!';
+
+echo $status;
+
+$ping = @fsockopen ($URL, 27016, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Prop Hunt Server läuft!';
+
+echo $status;
+
+$ping = @fsockopen ($URL, 27017, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Deathrun Server läuft!';
+
+echo $status;
+
+$ping = @fsockopen ($URL, 27018, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Hunger Games Server läuft!';
+
+echo $status;
+
+$ping = @fsockopen ($URL, 27019, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Murder Server läuft!';
+
+echo $status;
+
+$ping = @fsockopen ($URL, 27020, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'Gmod Guess Who Server läuft!';
+
+echo $status;
+
+echo "<br>";
+
+
+$ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
+(!$ping) ? $status = 'Gmod TTT Server läuft NICHT!' : $status = .'CoD: MW3 Server läuft!';
 
 echo $status;
 ?>
 			<br>
-			→ <a href="https://discordler.github.io/de/">Text mit Link</a><br><br>
+			<br>
+			<br>
+			→ <a href="http://discordler.ddns.net/ogp/">Serververwaltung</a><br><br>
 			Diese Seite wird automatisch in <b><span id="countdowntimer">60 </span> Sekunden aktualisiert!
 		</div>
       </div>
