@@ -107,15 +107,12 @@ $ping = @fsockopen ($URL, 27020, $errno, $errstr, 10);
 
 echo $status.'<br>';
 
-echo "<br>";
-
 
 $ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
 (!$ping) ? $status = '<span style="color:#C71585;">CoD: MW3 läuft NICHT! ' : $status = '<span style="color:#7FFF00;">CoD: MW3 läuft!</span>';
 
 echo $status;
 
-echo "<br>";
 echo "<br>";
 ?>
 <p class="left-align light"><b>Server Internet Geschwindigkeit (live):</b><br>
@@ -146,8 +143,6 @@ echo "Ping: ".(($times[1]-$times[0])*1000)."ms\n . <br>"
     ."Download: ".($return/($times[3]-$times[2])/1024)."kb/s\n . <br>";
 ?>
 <span style="color:#000000;">
-			<br>
-			<br>
 			<br>
 			Diese Seite wird automatisch in <b><span id="countdowntimer">60 </span> Sekunden aktualisiert!
 		</div>
