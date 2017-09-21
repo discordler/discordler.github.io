@@ -1,5 +1,4 @@
 <!DOCTYPE html> <html lang="mul"> <head>
-  <meta http-equiv="refresh" content="0; URL=https://discordler.github.io/de">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <meta name="description" content="Wir sind ein paar leidenschaftlicher Zocker die, damals auf TeamSpeak, jetzt auf Discord vertreten sind. Wir stellen Game Server und passende Rechte zur Verfügung.">
@@ -8,5 +7,25 @@
   <title>Discordler Homepage</title>
   
    <!-- This is a placeholder. You can finde the real index file in /de/index.html or /en/index.html -->
+
+<body onload='detect();'>
+   
+<script type="text/javascript">
+var userLang = navigator.language || navigator.userLanguage;
+var detect = function(){ 
+switch(userLang){
+    case 'en':
+        window.location.href = '/en/';
+        break;
+    case 'de':
+        window.location.href = '/de/';
+        break;
+    default:
+        // if it's something else fall back to the default
+        window.location.href = '/en/';
+        break;
+}
+}
+</script>
 
 </body> </html>
