@@ -35,14 +35,12 @@
 		<li><a href="../en/app" target="_blank">Official Discordler App</a></li>
         <li><a href="../de/joinus" target="_blank">Discord, TS3 & Steam</a></li>
 		<li><a href="../de/news" target="_blank">News & Videos</a></li>
-		<li><a href="../en" target="_blank">English</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
         <li><a href="../de/gmod">Gmod</a></li>
 		<li><a href="../en/app" target="_blank">Official Discordler App</a></li>
         <li><a href="../de/joinus" target="_blank">Discord, TS3 & Steam</a></li>
         <li><a href="../de/news" target="_blank">News & Videos</a></li>
-		<li><a href="../en" target="_blank">English</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -53,14 +51,194 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
 			<p class="left-align light"><b>Die Weiterleitung wurde gestartet, bitte warte wenige Sekunden. </b><br>
-			Sollte die Weiterleitung nicht funktionieren ist unser Server leider Momentan nicht erreichbar. Folgende Dienste stehen dir dann nicht zur verfügung:<br>
+			Sollte die Weiterleitung nicht funktionieren ist unser Server leider Momentan nicht erreichbar. Folgende Dienste stehen dir dann nicht zur Verfügung:<br>
 			→ Discordler Gaming Page<br>
 			→ Alle Spiele Server</a><br>
 			→ OpenGamePanel Spiele Server Verwaltung</a><br><br>
+			<p class="left-align light"><b><a href="http://discordler.ddns.net/gaming.php">Klicke hier</a> um die Weiterleitung erneut zu versuchen.</b><br><br>
+			<p class="left-align light"><b>Alternativ kannst du dir weiter unten die Zeit etwas vertreiben.</b><br>
 		</div>
       </div>
     </div>
   </div>
+  
+    <div class="container">
+    <div class="section">
+      <!-- Icon Section -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+			<body onload="startGame()">
+
+
+<div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:322px;height:182px;display:none"></div>
+<div id="myrestartbutton" style="position:absolute;padding-top:75px;padding-left:120px;display:none;"><button onclick="restartGame()">Restart</button></div>
+<div id="canvascontainer"></div>
+<br>
+<div style="text-align:center;width:320px;">
+  <button ontouchstart="moveup()" onmousedown="moveup()" onmouseup="clearmove()">UP</button><br><br>
+  <button ontouchstart="moveleft()" onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>
+  <button ontouchstart="moveright()" onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button><br><br>
+  <button ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()">DOWN</button>
+</div>
+<br>
+
+<script>
+
+var myGameArea;
+var myGamePiece;
+var myObstacles = [];
+var myscore;
+
+function restartGame() {
+document.getElementById("myfilter").style.display = "none";
+document.getElementById("myrestartbutton").style.display = "none";
+myGameArea.stop();
+myGameArea.clear();
+myGameArea = {};
+myGamePiece = {};
+myObstacles = [];
+myscore = {};
+document.getElementById("canvascontainer").innerHTML = "";
+startGame()
+}
+
+function startGame() {
+    myGameArea = new gamearea();
+    myGamePiece = new component(30, 30, "red", 10, 75);
+    myscore = new component("15px", "Consolas", "black", 220, 25, "text");
+    myGameArea.start();
+}
+
+function gamearea() {
+    this.canvas = document.createElement("canvas");
+    this.canvas.width = 320;
+    this.canvas.height = 180;    
+    document.getElementById("canvascontainer").appendChild(this.canvas);
+    this.context = this.canvas.getContext("2d");
+    this.pause = false;
+    this.frameNo = 0;
+    this.start = function() {
+        this.interval = setInterval(updateGameArea, 20);
+    }
+    this.stop = function() {
+        clearInterval(this.interval);
+        this.pause = true;
+    }
+    this.clear = function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+
+    this.type = type;
+    if (type == "text") {
+        this.text = color;
+    }
+    this.score = 0;    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, y, min, max, height, gap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            myGameArea.stop();
+            document.getElementById("myfilter").style.display = "block";
+            document.getElementById("myrestartbutton").style.display = "block";
+            return;
+        } 
+    }
+    if (myGameArea.pause == false) {
+        myGameArea.clear();
+        myGameArea.frameNo += 1;
+        myscore.score +=1;        
+        if (myGameArea.frameNo == 1 || everyinterval(150)) {
+            x = myGameArea.canvas.width;
+            y = myGameArea.canvas.height - 100;
+            min = 20;
+            max = 100;
+            height = Math.floor(Math.random()*(max-min+1)+min);
+            min = 50;
+            max = 100;
+            gap = Math.floor(Math.random()*(max-min+1)+min);
+            myObstacles.push(new component(10, height, "green", x, 0));
+            myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+        }
+        for (i = 0; i < myObstacles.length; i += 1) {
+            myObstacles[i].x += -1;
+            myObstacles[i].update();
+        }
+        myscore.text="SCORE: " + myscore.score;        
+        myscore.update();
+        myGamePiece.x += myGamePiece.speedX;
+        myGamePiece.y += myGamePiece.speedY;    
+        myGamePiece.update();
+    }
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function moveup(e) {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 1; 
+}
+
+function clearmove(e) {
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
+}
+startGame();
+
+</script>
+</div>
+</div>
+</div>
 
   <!-- Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
