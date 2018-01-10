@@ -81,20 +81,6 @@ system('shutdown -h now'); ?>
         clearInterval(downloadTimer);
     },1000);
   </script>
-  
-<!-- FAB - Floating Action Button (Icons hier: http://materializecss.com/icons.html) -->
-  
-  <div class="fixed-action-btn vertical">
-    <a class="btn-floating btn-large green">
-      <i class="large material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red" href="http://discordler.ddns.net/ogp" target="_blank"><i class="material-icons">vpn_key</i></a></li>
-      <li><a class="btn-floating blue" href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank"><i class="material-icons">info_outline</i></a></li>
-      <li><a class="btn-floating green" href="https://github.com/discordler/discordler.github.io/issues"><i class="material-icons">report_problem</i></a></li>
-      <li><a class="btn-floating yellow darken-1" href="../en" target="_blank"><i class="material-icons">description</i></a></li>
-    </ul>
-  </div>
 
   <!-- Footer -->
   
