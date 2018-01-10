@@ -61,7 +61,10 @@
       <p class="left-align light"><b>Herunterfahren wird ausgeführt...</b><br>
         Sollte sich in <b><span id="countdowntimer">8 </span> Sekunden die Server Verwaltung öffnen schlug etwas fehl!<br><br>
 
-<?php system('shutdown -h now'); ?>
+<?php
+shell_exec ("/home/cadmin/scripts/notify/phpshutdown.sh");
+sleep(1);
+system('shutdown -r now'); ?>
 <span style="color:#000000;">
     </div>
       </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html> <html lang="de"> <head>
-  <meta http-equiv="refresh" content="8; URL=controlpc.html">
+  <meta http-equiv="refresh" content="8; URL=index.html">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="description" content="None">
   <meta name="keywords" content="Discordler, Team, Games, Gmod, Discord">
@@ -60,8 +60,10 @@
           <h3><i class="mdi-content-send brown-text"></i></h3>
       <p class="left-align light"><b>Herunterfahren wird ausgeführt...</b><br>
         Sollte sich in <b><span id="countdowntimer">8 </span> Sekunden die Server Verwaltung öffnen schlug etwas fehl!<br><br>
-
-<?php system('shutdown -h now'); ?>
+<?php
+shell_exec ("/home/cadmin/scripts/notify/phpshutdown.sh");
+sleep(1);
+system('shutdown -h now'); ?>
 <span style="color:#000000;">
     </div>
       </div>
