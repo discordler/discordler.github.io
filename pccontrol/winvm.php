@@ -58,14 +58,12 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-      <p class="left-align light"><b>Neustart wird ausgeführt...</b><br>
-        Sollte sich in <b><span id="countdowntimer">8 </span> Sekunden die Server Verwaltung öffnen schlug etwas fehl!<br><br>
-
+      <p class="left-align light"><b>Windows VM wird gestartet...</b><br>
+        Seite aktualisiert sich in <b><span id="countdowntimer">8 </span> Sekunden!<br><br>
 <?php
 $username=$_POST['username'];
-shell_exec ("/home/cadmin/scripts/notify/phpreboot.sh $username");
-sleep(1);
-system('shutdown -r now'); ?>
+shell_exec ("/home/cadmin/scripts/notify/winvm.sh $username");
+sleep(1); ?>
 <span style="color:#000000;">
     </div>
       </div>
@@ -83,7 +81,6 @@ system('shutdown -r now'); ?>
         clearInterval(downloadTimer);
     },1000);
   </script>
-  
 
   <!-- Footer -->
   

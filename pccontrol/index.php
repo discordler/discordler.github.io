@@ -30,18 +30,18 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
         <li><a href="../de/gmod">Gmod</a></li>
-	<li><a href="../en/app" target="_blank">Official Discordler App</a></li>
+  <li><a href="../en/app" target="_blank">Official Discordler App</a></li>
         <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
-		<li><a href="news" target="_blank">News & Videos</a></li>
-	<li><a href="../en" target="_blank">English</a></li>
+    <li><a href="news" target="_blank">News & Videos</a></li>
+  <li><a href="../en" target="_blank">English</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-	<li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
+  <li><a href="http://steamcommunity.com/groups/discordler" target="_blank">Steam Gruppe</a></li>
         <li><a href="../de/gmod">Gmod</a></li>
-	<li><a href="../en/app" target="_blank">Official Discordler App</a></li>
+  <li><a href="../en/app" target="_blank">Official Discordler App</a></li>
         <li><a href="http://www.teamspeak.com/invite/www.teamspeak.dev-it.de/" target="_blank">TS3</a></li>
         <li><a href="../de/news" target="_blank">News & Videos</a></li>
-	<li><a href="../en" target="_blank">English</a></li>
+  <li><a href="../en" target="_blank">English</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -64,18 +64,49 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-			<p class="left-align light"><b>Herunterfahren / Neu starten </b><br>
-			Verwende diese Funktionen mit Vorsicht!<br>
-			<a href="shutdown.php">Herunterfahren</a><br><br>
-      <a href="reboot.php">Neu starten</a><br><br>
-		</div>
+      <p class="left-align light"><b>Herunterfahren / Neu starten </b><br>
+      Verwende diese Funktionen mit Vorsicht!<br>
+      <?php
+      echo '<form action="shutdown.php" method="post" accept-charset="utf-8">';
+      echo '<fieldset><legend>PC herunterfahren</legend>';
+      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username"></textarea></p>';
+      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="Herunterfahren"></p>';
+      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
+      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
+      echo '</fieldset>';
+      echo '</form>';
+      echo '<br>';
+
+      echo '<form action="reboot.php" method="post" accept-charset="utf-8">';
+      echo '<fieldset><legend>PC neustarten</legend>';
+      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username"></textarea></p>';
+      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="Neustarten"></p>';
+      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
+      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
+      echo '</fieldset>';
+      echo '</form>';
+      echo '<br>';
+
+      echo '<form action="winvm.php" method="post" accept-charset="utf-8">';
+      echo '<fieldset><legend>Starte Windows VM (mit z.B. MW3 Server)</legend>';
+      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username"></textarea></p>';
+      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="VM starten"></p>';
+      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
+      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
+      echo '</fieldset>';
+      echo '</form>';
+      echo '<br>';
+      ?>
+      <!-- <a href="shutdown.php">Herunterfahren</a><br><br>
+      <a href="reboot.php">Neu starten</a><br><br> -->
+    </div>
       </div>
     </div>
   </div>
 
 <!-- FAB - Floating Action Button (Icons hier: http://materializecss.com/icons.html) -->
-	
-	<div class="fixed-action-btn vertical">
+  
+  <div class="fixed-action-btn vertical">
     <a class="btn-floating btn-large green">
       <i class="large material-icons">menu</i>
     </a>
@@ -100,7 +131,7 @@
           <h5 class="white-text">Admins</h5>
           <ul>
             <li><a class="white-text" href="http://steamcommunity.com/id/kai_2703">Kai //Admin</a></li>
-	        <li><a class="white-text" href="http://steamcommunity.com/id/DerBilaJoe">Luis //Admin</a></li>
+          <li><a class="white-text" href="http://steamcommunity.com/id/DerBilaJoe">Luis //Admin</a></li>
             <li><a class="white-text" href="http://steamcommunity.com/id/FaserF">Fabian //Admin</a></li>
           </ul>
         </div>
@@ -110,7 +141,7 @@
             <li><a class="white-text" href="http://steamcommunity.com/id/astertz">Adrian //Moderator</a></li>
             <li><a class="white-text" href="http://steamcommunity.com/id/Flokg">Flo //Moderator</a></li>
             <li><a class="white-text" href="http://steamcommunity.com/id/Blue_Skywolf">Fabio //Moderator</a></li>
-	        <li><a class="white-text" href="http://steamcommunity.com/id/Issava">Nessie //Moderator</a></li>
+          <li><a class="white-text" href="http://steamcommunity.com/id/Issava">Nessie //Moderator</a></li>
           </ul>
         </div>
       </div>
@@ -124,8 +155,8 @@
       <div class="container text-center">
         <a class="white-text text-left" href="../impressum">Impressum</a> | 
         <a class="white-text text-center" href="https://github.com/discordler/discordler.github.io">GitHub</a> | 
-	<a class="white-text text-right" href="../en/admin" target="_blank">Admin</a> | 
-	<a class="white-text text-right" href="../other/amy" target="_blank">Amy</a> 
+  <a class="white-text text-right" href="../en/admin" target="_blank">Admin</a> | 
+  <a class="white-text text-right" href="../other/amy" target="_blank">Amy</a> 
       </div>
     </div>
   </footer>
