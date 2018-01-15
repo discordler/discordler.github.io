@@ -1,26 +1,16 @@
 <!DOCTYPE html> <html lang="de"> <head>
+  <meta http-equiv="refresh" content="8; URL=index.php">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="description" content="None">
   <meta name="keywords" content="Discordler, Team, Games, Gmod, Discord">
   <meta name="author" content="Discordler">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Discordler</title>
+  <title>Shutdown - Discordler</title>
   <link rel="icon" type="image/png" href="../pic/ico.png" sizes="32x32">
   <!-- CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> 
-  
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-92662613-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
   </head>
   <body>
@@ -50,10 +40,14 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h2 class="header center teal-text text-lighten-2">Server Verwaltung</h2>
+        <h2 class="header center teal-text text-lighten-2">Unsere Gaming Seite</h2>
         <div class="row center">
-          <h5 class="header col s12 light">Herunterfahren/Neustarten und mehr!</h5>
+          <h5 class="header col s12 light">Lass diese Seite einfach auf deinem 2. Screen geöffnet für die wichtigsten Infos. <br>Oder schau einfach welche Server online sind!</h5>
         </div>
+        <div class="row center">
+            <a href="http://discordler.ddns.net/ogp/" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Serververwaltung!</a>
+        </div>
+        <br><br>
       </div>
     </div>
     <div class="parallax"><img src="../pic/discord.png" alt="Our own Discord"></div>
@@ -64,69 +58,29 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-      <p class="left-align light"><b>Herunterfahren / Neu starten </b><br>
-      Verwende diese Funktionen mit Vorsicht!<br>
-      <?php
-      echo '<form action="shutdown.php" method="post" accept-charset="utf-8">';
-      echo '<fieldset><legend>PC herunterfahren</legend>';
-      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username" required></textarea></p>';
-      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="Herunterfahren"></p>';
-      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
-      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
-      echo '</fieldset>';
-      echo '</form>';
-      echo '<br>';
-
-      echo '<form action="reboot.php" method="post" accept-charset="utf-8">';
-      echo '<fieldset><legend>PC neustarten</legend>';
-      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username" required></textarea></p>';
-      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="Neustarten"></p>';
-      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
-      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
-      echo '</fieldset>';
-      echo '</form>';
-      echo '<br>';
-
-      echo '<form action="winvm_start.php" method="post" accept-charset="utf-8">';
-      echo '<fieldset><legend>Starte Windows VM (mit z.B. MW3 Server)</legend>';
-      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username" required></textarea></p>';
-      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="VM starten"></p>';
-      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
-      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
-      echo '</fieldset>';
-      echo '</form>';
-      echo '<br>';
-
-      echo '<form action="winvm_stop.php" method="post" accept-charset="utf-8">';
-      echo '<fieldset><legend>Stoppe Windows VM (inkl. MW3 Server)</legend>';
-      echo '<p><label for="username">Gib deinen Namen an: </label><input type="text" name="username" required></textarea></p>';
-      echo '<p><input class="btn-filled input-btn-filled" type="submit" value="VM stoppen"></p>';
-      echo '<input type="hidden" name="product_type" value="actual_product_type" id="product_type">';
-      echo '<input type="hidden" name="product_id" value="actual_product_id" id="product_id">';
-      echo '</fieldset>';
-      echo '</form>';
-      echo '<br>';
-      ?>
-      <!-- <a href="shutdown.php">Herunterfahren</a><br><br>
-      <a href="reboot.php">Neu starten</a><br><br> -->
+      <p class="left-align light"><b>Windows VM wird gestartet...</b><br>
+        Seite aktualisiert sich in <b><span id="countdowntimer">8 </span> Sekunden!<br><br>
+<?php
+$username=$_POST['username'];
+shell_exec ("/home/cadmin/scripts/notify/winvm_start.sh $username");
+sleep(1); ?>
+<span style="color:#000000;">
     </div>
       </div>
     </div>
   </div>
+</span>
 
-<!-- FAB - Floating Action Button (Icons hier: http://materializecss.com/icons.html) -->
-  
-  <div class="fixed-action-btn vertical">
-    <a class="btn-floating btn-large green">
-      <i class="large material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red" href="https://discordler.github.io/other/ogp" target="_blank"><i class="material-icons">vpn_key</i></a></li>
-      <li><a class="btn-floating blue" href="https://docs.google.com/spreadsheets/d/1hYTq29chm3ioWQWCp_3fM9pMRxb7wbGZL1xMBm7r3kE/edit?usp=sharing" target="_blank"><i class="material-icons">info_outline</i></a></li>
-      <li><a class="btn-floating green" href="https://github.com/discordler/discordler.github.io/issues"><i class="material-icons">report_problem</i></a></li>
-      <li><a class="btn-floating yellow darken-1" href="../en" target="_blank"><i class="material-icons">description</i></a></li>
-    </ul>
-  </div>
+  <!-- Countdown Timer-->
+  <script type="text/javascript">
+    var timeleft = 8;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+  </script>
 
   <!-- Footer -->
   
