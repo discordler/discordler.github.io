@@ -62,7 +62,7 @@
         Seite aktualisiert sich in <b><span id="countdowntimer">8 </span> Sekunden!<br><br>
 <?php
 $username=$_POST['username'];
-shell_exec ("/home/cadmin/scripts/notify/winvm_start.sh $username");
+shell_exec ("sudo /home/cadmin/scripts/notify/winvm_start.sh $username");
 sleep(1); ?>
 <span style="color:#000000;">
     </div>

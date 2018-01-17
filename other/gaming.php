@@ -62,7 +62,7 @@
 <?php
 $URL = 'discordler.ddns.net';
 $ping = @fsockopen ($URL, 80, $errno, $errstr, 10);
-(!$ping) ? $status = '<span style="color:#C71585;">Discordler WebServer läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Discordler WebServer läuft!</span>';
+(!$ping) ? $status = '<span style="color:#C71585;">Discordler Server läuft NICHT! ' : $status = '<span style="color:#7FFF00;">Discordler Server läuft!</span>';
 
 echo $status.'<br>';
 
@@ -96,41 +96,23 @@ $ping = @fsockopen ($URL, 27020, $errno, $errstr, 10);
 
 echo $status.'<br>';
 
-
 $ping = @fsockopen ($URL, 28016, $errno, $errstr, 10);
 (!$ping) ? $status = '<span style="color:#C71585;">CoD: MW3 läuft NICHT! ' : $status = '<span style="color:#7FFF00;">CoD: MW3 läuft!</span>';
 
 echo $status;
 
 echo "<br>";
+
+$ping = @fsockopen ($URL, 28023, $errno, $errstr, 10);
+(!$ping) ? $status = '<span style="color:#C71585;">ARK läuft NICHT! ' : $status = '<span style="color:#7FFF00;">ARK läuft!</span>';
+
+echo $status;
+
+echo "<br>";
 ?>
-<p class="left-align light"><b>Server Internet Geschwindigkeit (live):</b><br>
-<?php
-//Speedtest
-$times = Array(microtime(true));
-$f = fsockopen("google.com",80);
-$times[] = microtime(true);
-$data = "POST / HTTP/1.0\r\n"
-       ."Host: google.com\r\n"
-       ."\r\n"
-       .str_repeat("a",1000000); // send one megabyte of data
-$sent = strlen($data);
-fputs($f,$data);
-$firstpacket = true;
-$return = 0;
-while(!feof($f)) {
-    $return += strlen(fgets($f));
-    if( $firstpacket) {
-        $firstpacket = false;
-        $times[] = microtime(true);
-    }
-}
-$times[] = microtime(true);
-fclose($f);
-echo "Ping: ".(($times[1]-$times[0])*1000)."ms\n . <br>"
-    ."Upload: ".($sent/($times[2]-$times[1])/1024)."kb/s\n . <br>"
-    ."Download: ".($return/($times[3]-$times[2])/1024)."kb/s\n . <br>";
-?>
+<p class="left-align light"><b>Server Internet Geschwindigkeit (Speedtest):</b><br>
+<a href="../speedtest/" target="_blank">Server Speedtest</a><br>
+
 <span style="color:#000000;">
 			<br>
 			Diese Seite wird automatisch in <b><span id="countdowntimer">60 </span> Sekunden aktualisiert!
