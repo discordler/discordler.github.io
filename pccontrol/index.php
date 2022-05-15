@@ -149,9 +149,7 @@
           <h5 class="white-text">Moderatoren</h5>
           <ul>
             <li><a class="white-text" href="http://steamcommunity.com/id/astertz">Adrian //Moderator</a></li>
-            <li><a class="white-text" href="http://steamcommunity.com/id/Flokg">Flo //Moderator</a></li>
             <li><a class="white-text" href="http://steamcommunity.com/id/Blue_Skywolf">Fabio //Moderator</a></li>
-          <li><a class="white-text" href="http://steamcommunity.com/id/Issava">Nessie //Moderator</a></li>
           </ul>
         </div>
       </div>

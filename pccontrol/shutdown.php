@@ -45,7 +45,7 @@
           <h5 class="header col s12 light">Lass diese Seite einfach auf deinem 2. Screen geöffnet für die wichtigsten Infos. <br>Oder schau einfach welche Server online sind!</h5>
         </div>
         <div class="row center">
-            <a href="http://discordler.ddns.net/ogp/" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Serververwaltung!</a>
+            <a href="https://discordler.smartlife.tk/ogp/" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Serververwaltung!</a>
         </div>
         <br><br>
       </div>
